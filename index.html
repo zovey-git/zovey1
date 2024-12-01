@@ -3,11 +3,59 @@
 <head>
 <meta charset="utf-8">
 <title>温控系统</title>
+<script src="https://cdn.staticfile.net/jquery/1.10.2/jquery.min.js"></script>
 </head>
 <body>
 	<h1 align="center">实时画面显示</h1>
-	<div style="height: 600px;display: flex;align-items: center;justify-content: center"><iframe width="800px" height="600px"  src=" http://192.168.137.222:8081/" frameborder="0"></iframe></div>
-	<p align="center">温度范围：<input type="text" name="temp1" size="10" />℃  ——  <input type="text" name="temp2" size="10" />℃</p>
-	<p align="center">湿度范围：<input type="text" name="hum1" size="10" />%  ——  <input type="text" name="hum2" size="10" />%</p>
+	<div style="height: 600px;display: flex;align-items: center;justify-content: center"><iframe width="800px" height="600px"  src=" http://192.168.137.222:8081" ></iframe></div>
+	<p align="center">温度范围：<input type="text" id="i" size="10">℃  ——  <input type="text" id="ii" size="10" />℃</p>
+        <p align="center"><button onclick="saveDatai()">保存</button><button onclick="saveDataii()">保存</button></p>
+	<p align="center">湿度范围：<input type="text" id="iii" size="10" >%  ——  <input type="text" id="iiii" size="10" />%</p>
+        <p align="center"><button onclick="saveDataiii()">保存</button><button onclick="saveDataiiii()">保存</button></p>
+  	<script>
+    	function saveDatai() {
+        var inputData1 = document.getElementById("i").value;
+        localStorage.setItem("inputData1", inputData1);
+        alert("保存成功");
+    	}
+    	function saveDataii() {
+        var inputData2 = document.getElementById("ii").value;
+        localStorage.setItem("inputData2", inputData2);
+        alert("保存成功");
+    	}
+    	function saveDataiii() {
+        var inputData3 = document.getElementById("iii").value;
+        localStorage.setItem("inputData3", inputData3);
+        alert("保存成功");
+    	}
+    	function saveDataiiii() {
+        var inputData4 = document.getElementById("iiii").value;
+        localStorage.setItem("inputData4", inputData4);
+        alert("保存成功");
+    	}
+ 	$(function() {
+	alert("成功进入操作界面");
+	function fi() {
+        var savedData1 = localStorage.getItem("inputData1");
+        document.getElementById("i").value = savedData1;
+    	}
+	function fii() {
+        var savedData2 = localStorage.getItem("inputData2");
+        document.getElementById("ii").value = savedData2;
+    	}
+	function fiii() {
+        var savedData3 = localStorage.getItem("inputData3");
+        document.getElementById("iii").value = savedData3;
+    	}
+	function fiiii() {
+	var savedData4 = localStorage.getItem("inputData4");
+        document.getElementById("iiii").value = savedData4;
+	}
+	fi();
+	fii();
+	fiii();
+	fiiii();
+    	})
+    	</script>
 </body>
 </html>
